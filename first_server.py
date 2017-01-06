@@ -16,7 +16,8 @@ class CatsHandler(tornado.web.RequestHandler):
     def get(self):
         cats = [
             ('Васька', '/static/cat1.jpg'),
-            ('Петька', '/static/cat2.jpg')
+            ('Петька', '/static/cat2.jpg'),
+            ('Борис', '/static/cat3/jpg')
         ]
         cat = random.choice(cats)
         self.render("cats.html", cat_name=cat[0], cat_adress=cat[1])
