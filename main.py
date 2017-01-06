@@ -9,6 +9,6 @@ settings = [
     ('/', MainHandler)
 ]
 
-app = tornado.web.Application([])
+app = tornado.web.Application(settings)
 app.listen(8888)
 tornado.ioloop.IOLoop.current().start()
