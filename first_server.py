@@ -31,5 +31,5 @@ settings = [
 # http://host:port/page/page?param=value&param1=value
 
 app = tornado.web.Application(settings)  # создали веб приложение
-app.listen(8888)  # слушаем 8888 порт
+app.listen(80)  # слушаем 8888 порт
 tornado.ioloop.IOLoop.current().start()  # не отрубаем программу, пока господин этого не захочет
