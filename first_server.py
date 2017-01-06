@@ -7,13 +7,13 @@ class MainHandler(tornado.web.RequestHandler):
 
 class HelloHandler(tornado.web.RequestHandler):
     def get(self):
-        self.write("<h1>Привет, мой Господин!")
+        self.write("<h1>Привет, мой Господин!</h1>")
 
 settings = [
     ('/', MainHandler),
     ('/hello', HelloHandler)
 ]
 
-app = tornado.web.Application(settings)
-app.listen(8888)
-tornado.ioloop.IOLoop.current().start()
+app = tornado.web.Application(settings)  # создали веб приложение
+app.listen(8888)  # слушаем 8888 порт
+tornado.ioloop.IOLoop.current().start()  # не отрубаем программу, пока господин этого не захочет
