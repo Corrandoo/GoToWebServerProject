@@ -15,9 +15,8 @@ class HelloHandler(tornado.web.RequestHandler):
 class CatsHandler(tornado.web.RequestHandler):
     def get(self):
         cats = [
-            ('Васька', 'http://img1.liveinternet.ru/images/attach/c/5/86/352/86352251_samuye_krasivuye_fotografii_kotov__4_.jpg'),
-            ('Петька', 'http://vesti.dp.ua/wp-content/uploads/2016/09/%D0%BA%D0%BE%D1%82%D1%8B.jpg'),
-
+            ('Васька', '/static/cat1.jpg'),
+            ('Петька', '/static/cat2.jpg')
         ]
         cat = random.choice(cats)
         self.render("cats.html", cat_name=cat[0], cat_adress=cat[1])
@@ -26,7 +25,8 @@ class CatsHandler(tornado.web.RequestHandler):
 settings = [
     ('/', MainHandler),
     ('/hello', HelloHandler),
-    ('/cats', CatsHandler)
+    ('/cats', CatsHandler),
+    ('/static/(.*)', tornado.web.StaticFileHandler, {'path': 'static'})
 ]
 # http://host:port/page/page?param=value&param1=value
 
